@@ -103,3 +103,6 @@ class Pokemon:
         self.stats = stats
         self.types = types
         self.weight = weight
+    
+    def __str__(self):
+        return self.name
