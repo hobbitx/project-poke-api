@@ -106,3 +106,24 @@ class Pokemon:
     
     def __str__(self):
         return self.name
+    
+    def get_types(self):
+        Vtypes = []
+        for t in self.types:
+            Vtypes.append(str(t['type']['name']))
+        return Vtypes
+
+    def get_stats(self):
+        Vstats = {}
+        for s in self.stats:
+            Vstats[str(s['stat']['name'])]=int(s['base_stat'])
+        return Vstats
+
+            
+    def to_return(self):
+        return {
+            "types": self.get_types(),
+            "weight":self.weight,
+            "stats":self.get_stats()
+        }
+    
