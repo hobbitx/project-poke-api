@@ -103,3 +103,22 @@ class Pokemon:
         self.stats = stats
         self.types = types
         self.weight = weight
+
+    def getTypes(self):
+        string = []
+        for type in self.types:
+            string.append(str(type["type"]["name"]))
+        return string
+        
+    def getStats(self):
+        string = {}
+        for stat in self.stats:
+            string[str(stat["stat"]["name"])] = str(stat["base_stat"])
+        return string
+
+    def to_response(self):
+        return {
+            "types" : self.getTypes(),
+            "size":self.weight,
+            "stats": self.getStats()
+            }
